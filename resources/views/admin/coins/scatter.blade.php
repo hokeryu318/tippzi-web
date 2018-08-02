@@ -82,9 +82,6 @@
                 marker.setMap(map);
             @endforeach
         }
-        function test(){
-
-        }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 @endsection
