@@ -33,7 +33,7 @@ class AdminController extends Controller
         );
         $groupid = Coins::insert_entry('coin_groups', $group_entry);
 
-        $radius = 5;
+        $radius = 1.1515;
         $r_earth = 6378.0;
         for($i = 0; $i < $coin_ct; $i++){
             $rand_dist = random_int(0, $radius * 1000) / 1000.0;
