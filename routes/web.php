@@ -22,6 +22,6 @@ Route::get('admin/bar/manual', 'AdminController@manual');
 Route::get('admin/coin/scatter', 'AdminController@scatter_coin');
 Route::post('coin/scatter_post',  'AdminController@scatter_coin_post');
 
-Route::post('coin/get_near_coins', 'AdminController@get_near_coins');
-Route::post('coin/get_coin', 'AdminController@get_coin');
-Route::post('coin/withdraw_coin', 'AdminController@withdraw_coin');
+Route::get('coin/get_near_coins', 'AdminController@get_near_coins');
+Route::get('coin/get_coin', 'AdminController@get_coin');
+Route::get('coin/withdraw_coin', 'AdminController@withdraw_coin');
