@@ -85,10 +85,11 @@ class Coins extends Model
             );
             Coins::insert_entry('coin_customers', $entry);
         }
+        $customer = DB::table('coin_customers')->where('customer_id', $customerid)->get()->first();
         DB::table('coin_pos')->where('id', $coinid)->update(['status' => 0]);
         return array(
             'result' => 'success',
-            'coins' => $customer->coin_count + 1
+            'coins' => $customer->coin_count
         );
     }
 
