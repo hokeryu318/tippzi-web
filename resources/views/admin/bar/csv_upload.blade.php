@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onClick="ethertest()">Submit</button>
                     </div>
                 </form>
             </div>

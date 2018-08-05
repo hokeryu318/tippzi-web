@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Coins;
+use Web3\Web3;
+use Web3\Providers\HttpProvider;
+use Web3\RequestManagers\HttpRequestManager;
+
+use Ethereum\Ethereum;
 
 class AdminController extends Controller
 {
@@ -57,8 +62,53 @@ class AdminController extends Controller
     public function get_near_coins(){
         $latitude = Input::get('lat');
         $longitude = Input::get('lon');
-        $range = 100;
+        $customerid = Input::get('customer');
+        $range = 5;
         $coins = Coins::get_near_coins($latitude, $longitude, $range);
         return json_encode($coins);
+    }
+
+    public function withdraw_coin(){
+        $customerid = Input::get('customer');
+        $toAccount = Input::get('walletid');
+        $fromAccount = '0xaa9a46f9e81749e9fee0af36ba249f22ed77dbe1';
+        // $toAccount = '0xff75eb627fae7f2aa7ab3857e8316b6dd8d4afa7';
+        $amt = Coins::get_coin_amt($customerid);
+        
+        // dd($amt);
+        if($amt < 0){
+            return "Invalid customer id";
+        }
+        $web3 = new Web3('http://localhost:8545');
+        $eth = $web3->eth;
+
+        $eth->accounts(function ($err, $accounts) use ($eth, $fromAccount, $toAccount, $amt, $customerid) {
+            if ($err !== null) {
+                echo json_encode(['result' => 'failure', 'message' => $err->getMessage()]);
+                return;
+            }
+        
+            // send transaction
+            $eth->sendTransaction([
+                'from' => $fromAccount,
+                'to' => $toAccount,
+                'value' => (int)$amt
+            ], function ($err, $transaction) use ($eth, $fromAccount, $toAccount, $customerid) {
+                if ($err !== null) {
+                    echo json_encode(['result' => 'failure', 'message' => $err->getMessage()]);
+                    return;
+                }
+                echo json_encode(['result' => 'success', 'txhash' => $transaction]);
+                Coins::reset_customer_coin($customerid);
+            });
+        });
+    }
+
+    public function get_coin(){
+        $customer = Input::get('customer');
+        $coin = Input::get('coin');
+        // $lat = Input::get('lat');
+        // $lon = Input::get('lon');
+        return Coins::get_coin($customer, $coin);
     }
 }

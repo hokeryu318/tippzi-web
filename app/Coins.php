@@ -20,7 +20,7 @@ class Coins extends Model
         if(isset($group)){
             $sql = $sql->where('group', $group);
         }
-        return $sql->get();
+        return $sql->where('status', '1')->get();
     }
 
     public static function get_near_coins($lat, $lon, $range){
@@ -28,7 +28,7 @@ class Coins extends Model
         $result = array();
         foreach($coin_positions as $pos){
             $distance = Coins::distance($lat, $lon, $pos->latitude, $pos->longitude, 'K') * 1000;
-            if($distance < $range){
+            if($distance < $range && $pos->status == '1'){
                 array_push($result, $pos);
             }
         }
@@ -50,5 +50,58 @@ class Coins extends Model
         } else {
             return $miles;
         }
+    }
+
+    public static function get_coin($customerid, $coinid){
+        if(!DB::table('customer_user')->where('id', $customerid)->exists()){
+            return array(
+                'result' => 'failure',
+                'message' => 'Customer id not found'
+            );
+        }
+        if(!DB::table('coin_pos')->where('id', $coinid)->exists()){
+            return array(
+                'result' => 'failure',
+                'message' => 'Coin id not found'
+            );
+        }
+        if(DB::table('coin_pos')->where('id', $coinid)->get()->first()->status == 0){
+            return array(
+                'result' => 'failure',
+                'message' => 'Coin is already taken'
+            );
+        }
+
+        $customer = DB::table('coin_customers')->where('customer_id', $customerid)->get()->first();
+        if(isset($customer)){
+            $entry = array(
+                'coin_count' => $customer->coin_count + 1
+            );
+            DB::table('coin_customers')->where('customer_id', $customerid)->update($entry);
+        } else {
+            $entry = array(
+                'customer_id' => $customerid,
+                'coin_count' => 1
+            );
+            Coins::insert_entry('coin_customers', $entry);
+        }
+        DB::table('coin_pos')->where('id', $coinid)->update(['status' => 0]);
+        return array(
+            'result' => 'success',
+            'coins' => $customer->coin_count + 1
+        );
+    }
+
+    public static function get_coin_amt($customerid){
+        $customer = DB::table('coin_customers')->where('customer_id', $customerid)->get()->first();
+        if(isset($customer)){
+            return $customer->coin_count;
+        } else {
+            return -1;
+        }
+    }
+
+    public static function reset_customer_coin($customerid){
+        DB::table('coin_customers')->where('customer_id', $customerid)->update(['coin_count' => 0]);
     }
 }
