@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100131
 File Encoding         : 65001
 
-Date: 2018-08-05 17:21:43
+Date: 2018-08-05 18:07:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,6 +48,7 @@ CREATE TABLE `coin_pos` (
   `latitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `longitude` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `group` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

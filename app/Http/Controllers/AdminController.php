@@ -10,6 +10,7 @@ use App\Coins;
 use Web3\Web3;
 use Web3\Providers\HttpProvider;
 use Web3\RequestManagers\HttpRequestManager;
+use Hash;
 
 use Ethereum\Ethereum;
 
@@ -52,7 +53,8 @@ class AdminController extends Controller
             $entry = array(
                 'latitude' => $new_latitude,
                 'longitude' => $new_longitude,
-                'group' => $groupid
+                'group' => $groupid,
+                'token' => Hash::make($new_latitude.$new_longitude)
             );
             Coins::insert_entry('coin_pos', $entry);
         }
@@ -107,8 +109,9 @@ class AdminController extends Controller
     public function get_coin(){
         $customer = Input::get('customer');
         $coin = Input::get('coin');
-        // $lat = Input::get('lat');
-        // $lon = Input::get('lon');
-        return Coins::get_coin($customer, $coin);
+        $lat = Input::get('lat');
+        $lon = Input::get('lon');
+        $token = Input::get('token');
+        return Coins::get_coin($customer, $coin, $lat, $lon, $token);
     }
 }

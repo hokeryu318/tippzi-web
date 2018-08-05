@@ -2,6 +2,7 @@
 
 namespace App;
 use DB;
+use Hash;
 use Illuminate\Database\Eloquent\Model;
 
 class Coins extends Model
@@ -52,7 +53,7 @@ class Coins extends Model
         }
     }
 
-    public static function get_coin($customerid, $coinid){
+    public static function get_coin($customerid, $coinid, $lat, $lon, $token){
         if(!DB::table('customer_user')->where('id', $customerid)->exists()){
             return array(
                 'result' => 'failure',
@@ -71,6 +72,23 @@ class Coins extends Model
                 'message' => 'Coin is already taken'
             );
         }
+        $coin = DB::table('coin_pos')->where('id', $coinid)->get()->first();
+        $distance = Coins::distance($lat, $lon, $coin->latitude, $coin->longitude, 'K') * 1000;
+        // dd($distance);
+        if($distance > 5){
+            return array(
+                'result' => 'failure',
+                'message' => 'Not in range of coin'
+            );
+        }
+        // dd(Hash::check($coin->latitude.$coin->longitude, '$2y$10$Cl8BAyTBv2C.fWn0u.e4v.q.ycGCE1pE6xIEl/RyJCKh6vmVN6MYm'));
+        // if(!Hash::check($coin->latitude.$coin->longitude, $token)){
+        //     return array(
+        //         'result' => 'failure',
+        //         'message' => 'Invalid token'
+        //     );
+        // }
+
 
         $customer = DB::table('coin_customers')->where('customer_id', $customerid)->get()->first();
         if(isset($customer)){
