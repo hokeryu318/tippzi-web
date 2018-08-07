@@ -61,18 +61,18 @@ class AdminController extends Controller
         return Redirect::to('admin/coin/scatter');
     }
 
-    public function get_near_coins(){
-        $latitude = Input::get('lat');
-        $longitude = Input::get('lon');
-        $customerid = Input::get('customer');
+    public function get_near_coins(Request $request){
+        $latitude = $request->input('lat');
+        $longitude = $request->input('lon');
+        $customerid = $request->input('customer');
         $range = 5;
         $coins = Coins::get_near_coins($latitude, $longitude, $range);
         return json_encode($coins);
     }
 
-    public function withdraw_coin(){
-        $customerid = Input::get('customer');
-        $toAccount = Input::get('walletid');
+    public function withdraw_coin(Request $request){
+        $customerid = $request->input('customer');
+        $toAccount = $request->input('walletid');
         $fromAccount = '0xaa9a46f9e81749e9fee0af36ba249f22ed77dbe1';
         // $toAccount = '0xff75eb627fae7f2aa7ab3857e8316b6dd8d4afa7';
         $amt = Coins::get_coin_amt($customerid);
@@ -106,12 +106,12 @@ class AdminController extends Controller
         });
     }
 
-    public function get_coin(){
-        $customer = Input::get('customer');
-        $coin = Input::get('coin');
-        $lat = Input::get('lat');
-        $lon = Input::get('lon');
-        $token = Input::get('token');
+    public function get_coin(Request $request){
+        $customer = $request->input('customer');
+        $coin = $request->input('coin');
+        $lat = $request->input('lat');
+        $lon = $request->input('lon');
+        $token = $request->input('token');
         return Coins::get_coin($customer, $coin, $lat, $lon, $token);
     }
 }

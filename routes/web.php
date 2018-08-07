@@ -21,7 +21,3 @@ Route::get('admin/bar/csvupload', 'AdminController@csvupload');
 Route::get('admin/bar/manual', 'AdminController@manual');
 Route::get('admin/coin/scatter', 'AdminController@scatter_coin');
 Route::post('coin/scatter_post',  'AdminController@scatter_coin_post');
-
-
-Route::post('coin/get_coin', 'AdminController@get_coin');
-Route::post('coin/withdraw_coin', 'AdminController@withdraw_coin');
