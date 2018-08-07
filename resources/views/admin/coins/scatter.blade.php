@@ -21,12 +21,12 @@
                     <h4>Location</h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                        <input type="text" class="form-control" name="longitude" id="txt_long" placeholder="Longitude" value="51.508742" required>
+                        <input type="text" class="form-control" name="longitude" id="txt_lat" placeholder="Longitude" value="-0.120850" required>
                     </div>
                     <br>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                        <input type="text" class="form-control" name="latitude" id="txt_lat" placeholder="Latitude" value="-0.120850" required>
+                        <input type="text" class="form-control" name="latitude" id="txt_long" placeholder="Latitude" value="51.508742" required>
                     </div>
                     <br>
                     <h4>Coin Count</h4>
@@ -77,7 +77,7 @@
         function loadCoinPositions(){
             var pos, marker;
             @foreach($coin_positions as $pos)
-                pos = new google.maps.LatLng('{{$pos->longitude}}', '{{$pos->latitude}}');
+                pos = new google.maps.LatLng('{{$pos->latitude}}', '{{$pos->longitude}}');
                 marker = new google.maps.Marker({position: pos});
                 marker.setMap(map);
             @endforeach
