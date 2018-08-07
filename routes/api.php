@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('coin/get_near_coins', 'AdminController@get_near_coins');
+Route::post('coin/get_coin', 'AdminController@get_coin');
+Route::post('coin/withdraw_coin', 'AdminController@withdraw_coin');
