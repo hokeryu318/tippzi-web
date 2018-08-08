@@ -65,7 +65,7 @@ class AdminController extends Controller
         $latitude = $request->input('lat');
         $longitude = $request->input('lon');
         $customerid = $request->input('customer');
-        $range = 5;
+        $range = 1609;
         $coins = Coins::get_near_coins($latitude, $longitude, $range);
         return json_encode($coins);
     }
