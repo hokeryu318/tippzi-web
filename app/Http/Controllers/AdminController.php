@@ -117,6 +117,6 @@ class AdminController extends Controller
 
     public function get_coin_count(Request $request){
         $customer = $request->input('customer');
-        return Coins::get_coin_amt($customer);
+        return array("coinct" => Coins::get_coin_amt($customer));
     }
 }
