@@ -116,7 +116,7 @@ class Coins extends Model
         if(isset($customer)){
             return $customer->coin_count;
         } else {
-            return -1;
+            return 0;
         }
     }
 

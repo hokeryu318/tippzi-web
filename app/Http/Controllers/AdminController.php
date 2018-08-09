@@ -79,7 +79,7 @@ class AdminController extends Controller
         
         // dd($amt);
         if($amt < 0){
-            return "Invalid customer id";
+            return "Invalid withdraw";
         }
         $web3 = new Web3('http://localhost:8545');
         $eth = $web3->eth;
@@ -113,5 +113,10 @@ class AdminController extends Controller
         $lon = $request->input('lon');
         $token = $request->input('token');
         return Coins::get_coin($customer, $coin, $lat, $lon, $token);
+    }
+
+    public function get_coin_count(Request $request){
+        $customer = $request->input('customer');
+        return Coins::get_coin_amt($customer);
     }
 }
