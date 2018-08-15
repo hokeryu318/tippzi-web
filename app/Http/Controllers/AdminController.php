@@ -119,4 +119,10 @@ class AdminController extends Controller
         $customer = $request->input('customer');
         return array("coinct" => Coins::get_coin_amt($customer));
     }
+
+    public function get_coin_available(Request $request){
+        $coin = $request->input('coin');
+        $result = Coins::get_coin_available($coin);
+        echo json_encode(['result' => $result]);
+    }
 }

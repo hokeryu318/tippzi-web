@@ -123,4 +123,16 @@ class Coins extends Model
     public static function reset_customer_coin($customerid){
         DB::table('coin_customers')->where('customer_id', $customerid)->update(['coin_count' => 0]);
     }
+
+    public static function get_coin_available($coin){
+        $coin = DB::table('coin_pos')->where('id', $coin)->get()->first();
+        if($coin != null){
+            if($coin->status == 0)
+                return false;
+            else 
+                return true;
+        } else {
+            return false;
+        }
+    }
 }

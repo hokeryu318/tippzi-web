@@ -20,3 +20,4 @@ Route::post('coin/get_near_coins', 'AdminController@get_near_coins');
 Route::post('coin/get_coin', 'AdminController@get_coin');
 Route::post('coin/withdraw_coin', 'AdminController@withdraw_coin');
 Route::post('coin/get_coin_count', 'AdminController@get_coin_count');
+Route::post('coin/get_coin_available', 'AdminController@get_coin_available');
