@@ -21,7 +21,7 @@
                     <h4>Location</h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                        <input type="text" class="form-control" name="longitude" id="txt_lat" placeholder="Longitude" value="0.0072°" required>
+                        <input type="text" class="form-control" name="longitude" id="txt_lat" placeholder="Longitude" value="0.0072" required>
                     </div>
                     <br>
                     <div class="input-group">
@@ -60,7 +60,7 @@
         var map;
         function myMap() {
             var mapOptions = {
-                center: new google.maps.LatLng(51.508742,-0.120850),
+                center: new google.maps.LatLng(51.5431,0.0072),
                 zoom: 10,
                 mapTypeId: google.maps.MapTypeId.HYBRID
             }
