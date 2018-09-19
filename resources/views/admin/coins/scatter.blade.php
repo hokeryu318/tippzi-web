@@ -21,12 +21,12 @@
                     <h4>Location</h4>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                        <input type="text" class="form-control" name="longitude" id="txt_lat" placeholder="Longitude" value="-0.120850" required>
+                        <input type="text" class="form-control" name="longitude" id="txt_lat" placeholder="Longitude" value="0.0072°" required>
                     </div>
                     <br>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
-                        <input type="text" class="form-control" name="latitude" id="txt_long" placeholder="Latitude" value="51.508742" required>
+                        <input type="text" class="form-control" name="latitude" id="txt_long" placeholder="Latitude" value="51.5431" required>
                     </div>
                     <br>
                     <h4>Coin Count</h4>
