@@ -12,14 +12,19 @@
                 </a>
             </div>
         </div>
+        <div class="col-paypal">
+            <a style="color:white" onclick="onPaypal()">
+                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" alt="PayPal Logo"><br>
+                <span>Donate</span>
+            </a>
+        </div>
         <div class="col-store">
-                <a href="https://itunes.apple.com/app/id1373948490?mt=8&ign-mpt=uo%3D4">
-                    <img src="{{ asset('images/app_store.png') }}">
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.application.tippzi&hl=en_US">
-                    <img src="{{ asset('images/google_play.png') }}">
-                </a>
-
+            <a href="https://itunes.apple.com/app/id1373948490?mt=8&ign-mpt=uo%3D4">
+                <img src="{{ asset('images/app_store.png') }}">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.application.tippzi&hl=en_US">
+                <img src="{{ asset('images/google_play.png') }}">
+            </a>
         </div>
     </div>
 
@@ -72,6 +77,28 @@
             location.href = "{{ route('login') }}";
         });
     });
+
+    function onPaypal(){
+        PopupCenter("{{ route('donate') }}", 'Donate', 480, 320);
+    }
+
+    function PopupCenter(url, title, w, h) {
+        // Fixes dual-screen position                         Most browsers      Firefox
+        var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : window.screenX;
+        var dualScreenTop = window.screenTop != undefined ? window.screenTop : window.screenY;
+
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+        var systemZoom = width / window.screen.availWidth;
+        var left = (width - w) / 2 / systemZoom + dualScreenLeft
+        var top = (height - h) / 2 / systemZoom + dualScreenTop
+        var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w / systemZoom + ', height=' + h / systemZoom + ', top=' + top + ', left=' + left);
+
+        // Puts focus on the newWindow
+        if (window.focus) newWindow.focus();
+        return newWindow;
+    }
 </script>
 
 </html>

@@ -21,6 +21,9 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::get('/admin', 'AdminController@scatter_coin');
 
+Route::get('donate', 'IndexController@donate')->name('donate');
+Route::post('donate', 'IndexController@donate_post')->name('donate.post');
+
 Route::get('admin/bar/csvupload', 'AdminController@csvupload');
 Route::get('admin/bar/manual', 'AdminController@manual');
 Route::get('admin/coin/scatter', 'AdminController@scatter_coin');

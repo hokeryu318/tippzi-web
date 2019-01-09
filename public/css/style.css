@@ -23,6 +23,14 @@ body, html {
     float: left;
 }
 
+.col-paypal {
+    padding-top: 50px;
+    padding-left: 2%;
+    float: left;
+}
+
+
+
 .col-store {
     padding-top:50px;
     padding-right: 13%;
@@ -74,6 +82,13 @@ body, html {
         padding-left: 5%;
         width: 100%;
         float: left;
+    }
+
+    .col-paypal{
+        padding-top: 50px;
+        padding-left: 10%;
+        float: left;
+        width: 100%;
     }
 
 }

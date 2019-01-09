@@ -16,4 +16,14 @@ class IndexController extends Controller
     {
         return view('dashboard');
     }
+
+    public function donate()
+    {
+        return view('donate');
+    }
+
+    public function donate_post()
+    {
+
+    }
 }
