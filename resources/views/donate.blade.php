@@ -28,6 +28,11 @@
                 </div>
                 <form class="form-horizontal" action="{{ route('donate.post') }}" method="POST">
                     <div class="box-body">
+                        @if(isset($response) && $response)
+                        <div class="callout callout-success">
+                            <h4>Thank you for your donate!</h4>
+                        </div>
+                        @endif
                         <div class="form-group">
                             <label for="inputName" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
@@ -50,6 +55,7 @@
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-warning" onclick="onClose()">Close</button>
                     </div>
                     @csrf
                 </form>
@@ -73,5 +79,8 @@
         var amt = $(this).data('amt');
         $('#amount').val(amt);
     });
+    function onClose(){
+        window.close();
+    }
 </script>
 </body>

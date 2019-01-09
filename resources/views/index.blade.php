@@ -79,7 +79,7 @@
     });
 
     function onPaypal(){
-        PopupCenter("{{ route('donate') }}", 'Donate', 480, 320);
+        PopupCenter("{{ route('donate') }}", 'Donate', 480, 800);
     }
 
     function PopupCenter(url, title, w, h) {

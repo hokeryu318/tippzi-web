@@ -23,6 +23,7 @@ Route::get('/admin', 'AdminController@scatter_coin');
 
 Route::get('donate', 'IndexController@donate')->name('donate');
 Route::post('donate', 'IndexController@donate_post')->name('donate.post');
+Route::get('donate/paypal', 'IndexController@paypal')->name('donate.paypal');
 
 Route::get('admin/bar/csvupload', 'AdminController@csvupload');
 Route::get('admin/bar/manual', 'AdminController@manual');
