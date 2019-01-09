@@ -1,0 +1,627 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.t-container {
+    background-image: url("../images/first_background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.col-logo {
+    padding-top: 50px;
+    padding-left: 13%;
+    float: left;
+}
+
+.col-store {
+    padding-top:50px;
+    padding-right: 13%;
+    float: right;
+}
+
+.col-store img {
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.col-dash-logo {
+    padding-top: 50px;
+    padding-left: 13%;
+    float: left;
+}
+
+.col-settings {
+    padding-top:50px;
+    padding-right: 13%;
+    float: right;
+}
+
+.col-settings img {
+    float: right;
+
+}
+
+.t-phone {
+    background-image: url("../images/phone.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    height: 420px;
+    margin-top: 6%;
+}
+
+@media (max-width: 590px) {
+
+    .col-logo {
+        padding-top: 50px;
+        padding-left: 10%;
+        float: left;
+        width: 100%;
+    }
+    .col-store {
+        padding-top:20px;
+        padding-left: 5%;
+        width: 100%;
+        float: left;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .t-phone {
+        margin-top:40px;
+    }
+}
+.col_store img:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+
+.site-note {
+    margin-top: 15px;
+    width: 100%;
+    color: white;
+    text-align: center;
+
+}
+
+.t-container button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: black;
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.t-content {
+    min-height: 1000px;
+}
+
+.t-input-row label {
+    color: white;
+    font-size: 14px;
+    margin-top: 18px;
+    margin-left: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    margin: 0 !important;
+    height: 48px !important;
+
+}
+
+.t-input-row label {
+    vertical-align: middle;
+
+}
+.input-group-addon {
+    height: 40px !important;
+}
+
+button.create {
+    width: 100%;
+    background-color: #67D74D;
+    color: white;
+    border-radius: 25px;
+}
+
+button.register, button.login{
+    width: 100%;
+    background-color: #272727;
+    color: white;
+    border-radius: 25px;
+    border: 2px solid white;
+}
+
+.stage_content {
+    background-color: #222222;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.reg-content {
+    margin-top: 30px;
+}
+
+.t-input-row {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.t-input-row img{
+    width: 60%;
+}
+
+.t-input-row p {
+    font-family: "Times New Roman", Courier, monospace;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+}
+
+.t-input-row input {
+    font-family: "Times New Roman", Courier, monospace;
+    color: #767676;
+    font-size: 18px;
+    border-radius: 10px;
+    padding-left: 20px;
+    width: 100%;
+    margin: 8px 0;
+    height: 40px;
+}
+
+.t-input-row textarea {
+    width: 100%;
+    height: 100px;
+    font-family: "Times New Roman", Courier, monospace;
+    color: #767676;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 11px 20px;
+    margin: 8px 0;
+}
+
+
+
+
+
+
+
+
+.content {
+     background-image: url("../images/first_background.png");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+}
+
+.login_part {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.login_part table {
+    width: 650px;
+    height: 600px;
+}
+
+.login_part p {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    color: #626262;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+.login_part img {
+    height: 400px;
+}
+
+.login_part button:hover {
+    background-color: #555;
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer a {
+    font-family: "Times New Roman";
+    font-weight: bold;
+    color: #626262;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.stage_part {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #272727;
+}
+
+.stage_part table .stage_table{
+    /*border: double;*/
+    /*border-color: white;*/
+    /*width: 500px;*/
+    /*height: 600px;*/
+}
+.stage_part table img {
+    height: 20px;
+}
+
+.stage_part p {
+    font-family: "Times New Roman", Courier, monospace;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.stage_part input, select {
+    font-family: "Times New Roman", Courier, monospace;
+    color: #767676;
+    font-size: 18px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+input.short {
+    width: 240px;
+    height: 40px;
+    margin: 8px 0;
+}
+
+select.category {
+    width: 100%;
+    height: 40px;
+    margin: 8px 0;
+}
+
+
+.stage_part input.address {
+    margin-bottom: 15px;
+}
+
+button.lookup{
+    width: 100%;
+    height: 40px;
+    background-color: #64318E;
+    color: white;
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.round_btn {
+    width: 100%;
+    height: 40px;
+    background-color: #272727;
+    color: white;
+    border-radius: 25px;
+    border: 2px solid white;
+    font-family: "Times New Roman", Courier, monospace;
+    font-size: 18px;
+    margin: 1.5%;
+}
+
+.stage_part a.address {
+    color: #666666;
+    font-weight: bold;
+    cursor: context-menu;
+}
+
+.stage_part input.image {
+    width: 250px;
+    height: 40px;
+}
+
+.c-content {
+    min-height: 100%;
+}
+.dashboard_content {
+    background-color: #222222;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.dashboard_part {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    width: 50%;
+}
+
+.deal_part {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    background-color: #64318E;
+    width: 80%;
+
+}
+
+.deal_header {
+    font-family: "Times New Roman", Courier, monospace;
+    font-size: 10px;
+}
+
+ .deal_view {
+     background-color: white;
+     font-family: "Times New Roman", Courier, monospace;
+
+ }
+
+.deal_title, .deal_description, .deal_valid {
+    font-family: "Times New Roman", Courier, monospace;
+}
+
+.deal_title {
+    font-size: 15px;
+    color: #000000;
+}
+
+.deal_description {
+    font-size: 8px;
+    color: #BBBABE;
+}
+
+.deal_valid {
+    font-size: 5px;
+    color: #64318E;
+}
+
+.deal_edit button.edit_deal{
+    font-size: 8px;
+    color: #FFFFFF;
+    background-color: #000000;
+    border-radius: 25px;
+    width: 50%;
+}
+
+.business_view_part {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    background-color: white;
+}
+
+.c-error-block {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    margin-left: 5px;
+    color: #FB771E;
+    text-align: left;
+}
+
+i .c-icon-time {
+    font-family: 'Glyphicons Halflings';
+}
+
+i .c-icon-time:before {
+    content: "\e023";
+}
+
+.profile-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: 128px;
+    line-height: 128px;
+    overflow: hidden;
+}
+
+.profile-img img {
+    max-width: 128px;
+    max-height: 128px;
+    vertical-align: middle;
+}
+
+.ck-button {
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+
+.ck-button:hover {
+    background:red;
+}
+
+.ck-button label {
+    float:left;
+    width:4.0em;
+}
+
+.ck-button label span {
+    text-align:center;
+    padding:3px 0px;
+    display:block;
+}
+
+.ck-button label input {
+    position:absolute;
+    top:-20px;
+}
+
+.ck-button input:checked + span {
+    background-color:#911;
+    color:#fff;
+}
+
+.ck-button:hover {
+    background:red;
+}
+
+.btn-days {
+    background-color: #3C3F41;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+}
+
+.active{
+    background-color: #64318E;
+}
+
+.modal-address-header {
+    background-color: #64318E;
+    border: none;
+}
+
+.modal-address-title {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.modal-address-body {
+    padding-top: 5px;
+    background-color: #64318E;
+}
+
+.modal-address {
+    cursor: pointer;
+}
+
+.modal-address-row {
+    color: #ffffff;
+    padding: 5px 30px;
+    cursor: pointer;
+}
+
+.modal-address-row:hover {
+    background-color: green;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.time_table td {
+    padding: 5px;
+
+}
+
+.upload-img {
+
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 10px;
+}
+
+.upload-img-image {
+    height: 150px;
+    line-height: 150px;
+}
+.upload-img img {
+    width: 150px;
+    vertical-align: middle;
+}
+
+.upload-button {
+    float: left;
+    width: 48%;
+    margin: 1%;
+}
+
+.stage-container {
+    min-height: 900px;
+}
+
+.setting-row {
+    margin: auto;
+    padding: 5px;
+}
+
+.setting-row label {
+    font-size: 20px;
+    color: #ffffff;
+    font-family: "Times New Roman", Courier, monospace;
+    font-weight: bold;
+}
+
+.ajs-close {
+    display: none !important;
+}
+
+#pageloader
+{
+    background: rgba( 255, 255, 255);
+    display: none;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    opacity: 0.9;
+}
+
+#pageloader img
+{
+    left: 50%;
+    margin-left: -237px;
+    margin-top: -176px;
+    position: absolute;
+    top: 50%;
+}
